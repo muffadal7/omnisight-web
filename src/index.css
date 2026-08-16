@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── SCADA / INDUSTRIAL CONTROL ROOM DESIGN SYSTEM ────────────────── */
+:root {
+  --scada-bg: #060911;
+  --scada-surface: #0a0f1d;
+  --scada-card: #0e1526;
+  --scada-border: #1a253a;
+  --scada-border-active: #0ea5e9;
+  --scada-cyan: #00e5ff;
+  --scada-emerald: #00e676;
+  --scada-amber: #ffab00;
+  --scada-rose: #ff1744;
+  --scada-indigo: #6366f1;
+}
+
+@layer base {
+  * {
+    border-color: var(--scada-border);
+  }
+
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    color-scheme: dark;
+    background-color: var(--scada-bg);
+  }
+
+  body {
+    background-color: var(--scada-bg);
+    color: #e2e8f0;
+    overflow-x: hidden;
+    letter-spacing: -0.01em;
+  }
+
+  code, .font-mono {
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    letter-spacing: -0.02em;
+  }
+
+  .font-display {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+  }
+}
+
+/* ─── TECHNICAL INDUSTRIAL PANELS & BORDERS ────────────────────────── */
+.scada-panel {
+  background: #0a0f1d;
+  border: 1px solid #1a253a;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.04);
+}
+
+.scada-panel-active {
+  border-color: rgba(14, 165, 233, 0.5);
+  box-shadow: 0 0 15px -3px rgba(14, 165, 233, 0.15), inset 0 1px 0 0 rgba(14, 165, 233, 0.2);
+}
+
+.scada-panel-hover {
+  transition: all 0.2s ease;
+}
+.scada-panel-hover:hover {
+  border-color: #2a3b5a;
+  background: #0d1424;
+}
+
+/* ─── INDUSTRIAL OSCILLOSCOPE & RETICLE GRIDS ──────────────────────── */
+.bg-scada-grid {
+  background-size: 24px 24px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+}
+
+.bg-reticle-crosshair {
+  background-image: radial-gradient(rgba(14, 165, 233, 0.15) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+/* ─── AR SPATIAL CAMERA HUD STYLES ─────────────────────────────────── */
+.ar-hud-corner-tl {
+  position: absolute; top: -1px; left: -1px; width: 14px; height: 14px;
+  border-top: 2px solid var(--scada-cyan); border-left: 2px solid var(--scada-cyan);
+}
+.ar-hud-corner-tr {
+  position: absolute; top: -1px; right: -1px; width: 14px; height: 14px;
+  border-top: 2px solid var(--scada-cyan); border-right: 2px solid var(--scada-cyan);
+}
+.ar-hud-corner-bl {
+  position: absolute; bottom: -1px; left: -1px; width: 14px; height: 14px;
+  border-bottom: 2px solid var(--scada-cyan); border-left: 2px solid var(--scada-cyan);
+}
+.ar-hud-corner-br {
+  position: absolute; bottom: -1px; right: -1px; width: 14px; height: 14px;
+  border-bottom: 2px solid var(--scada-cyan); border-right: 2px solid var(--scada-cyan);
+}
+
+/* ─── CUSTOM SCROLLBARS ────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #060911;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0ea5e9;
+}
+
+/* LED Indicators */
+.led-beacon-green {
+  box-shadow: 0 0 10px #00e676, inset 0 0 4px #ffffff;
+}
+.led-beacon-amber {
+  box-shadow: 0 0 10px #ffab00, inset 0 0 4px #ffffff;
+}
+.led-beacon-red {
+  box-shadow: 0 0 10px #ff1744, inset 0 0 4px #ffffff;
+}
+.led-beacon-cyan {
+  box-shadow: 0 0 10px #00e5ff, inset 0 0 4px #ffffff;
+}
